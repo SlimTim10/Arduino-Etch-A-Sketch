@@ -5,7 +5,6 @@
 #define pot1	(analogRead(POT1_PIN))
 #define pot2	(analogRead(POT2_PIN))
 #define but1	(digitalRead(BUTTON1_PIN))
-#define but2	(digitalRead(BUTTON2_PIN))
 
 struct lcd_pins lcd;
 
@@ -42,7 +41,7 @@ void loop(void) {
 	uint16_t x = map(pot2, 1023, 0, 0, LCD_MAX_X);
 	uint16_t y = map(pot1, 0, 1023, 0, (LCD_MAX_Y * 8));
 	etch_pixel(x, y);
-	if (but1 || but2) {
+	if (but1) {
 		etch_stop();
 		etch_start();
 	}

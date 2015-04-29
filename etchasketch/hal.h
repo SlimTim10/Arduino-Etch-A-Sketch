@@ -12,7 +12,6 @@ enum pins {
 	POT1_PIN = 1,
 	POT2_PIN = 2,
 	BUTTON1_PIN = 2,
-	BUTTON2_PIN = 3,
 };
 
 #endif
