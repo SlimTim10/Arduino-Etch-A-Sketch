@@ -19,7 +19,7 @@ Draw pixels on a LCD like an Etch A Sketch, using potentiometers as knobs.
 - [Nokia 5110 LCD](https://www.sparkfun.com/products/10168)
   - [Datasheet](http://www.sparkfun.com/datasheets/LCD/Monochrome/Nokia5110.pdf)
   - [Sample Code](http://playground.arduino.cc/Code/PCD8544)
-- 3 Potentiometers
+- 3 [Potentiometers](http://www.adafruit.com/products/356)
 - 1 Pushbutton
 
 ## Pinout
@@ -35,12 +35,12 @@ Draw pixels on a LCD like an Etch A Sketch, using potentiometers as knobs.
 | Digital 9 | 7 (LIGHT) |
 | GND | 8 (GND) |
 
-| Arduino Uno | Button (pull-down) |
-| ---: | :--- |
-| Digital 2 | Button |
-
 | Arduino Uno | Potentiometer |
 | ---: | :--- |
 | Analog 0 | Potentiometer 0 |
 | Analog 1 | Potentiometer 1 |
 | Analog 2 | Potentiometer 2 |
+
+| Arduino Uno | Button (pull-down) |
+| ---: | :--- |
+| Digital 2 | Button |
