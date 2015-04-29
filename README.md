@@ -2,7 +2,7 @@
 
 ## Description
 
-Draw pixels on a LCD like an Etch A Sketch with potentiometers as knobs.
+Draw pixels on a LCD like an Etch A Sketch, using potentiometers as knobs.
 
 #### Controls
 
