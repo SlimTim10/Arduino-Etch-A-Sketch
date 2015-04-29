@@ -2,9 +2,9 @@
 #include "PCD8544.h"
 #include "etch.h"
 
-#define pot1	(analogRead(POT1_PIN))
-#define pot2	(analogRead(POT2_PIN))
-#define but1	(digitalRead(BUTTON1_PIN))
+#define readpot1()	(analogRead(POT1_PIN))
+#define readpot2()	(analogRead(POT2_PIN))
+#define readbut1()	(digitalRead(BUTTON1_PIN))
 
 struct lcd_pins lcd;
 
@@ -21,6 +21,7 @@ void setup_pins(void) {
 	lcd.sclk = LCD_PIN_SCLK;
 	
 	pinMode(LCD_PIN_LIGHT, OUTPUT);
+	pinMode(BUTTON1_PIN, INPUT);
 }
 
 void setup(void) {
@@ -32,16 +33,14 @@ void setup(void) {
 	lcd_contrast((uint8_t) (analogRead(POT_CONTRAST_PIN) * (255.0 / 1023.0)));
 
 	etch_start();
-	
-	/* etch_stop(); */
 }
 
 void loop(void) {
 	lcd_contrast((uint8_t) (analogRead(POT_CONTRAST_PIN) * (255.0 / 1023.0)));
-	uint16_t x = map(pot2, 1023, 0, 0, LCD_MAX_X);
-	uint16_t y = map(pot1, 0, 1023, 0, (LCD_MAX_Y * 8));
+	uint16_t x = map(readpot2(), 1023, 0, 0, LCD_MAX_X);
+	uint16_t y = map(readpot1(), 0, 1023, 0, (LCD_MAX_Y * 8));
 	etch_pixel(x, y);
-	if (but1) {
+	if (readbut1()) {
 		etch_stop();
 		etch_start();
 	}

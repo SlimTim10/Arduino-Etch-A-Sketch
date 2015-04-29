@@ -46,13 +46,6 @@ static void send_cmd(uint8_t cmd) {
 
 /* Send a data byte to the LCD */
 void lcd_send_data(uint8_t data) {
-	/* digitalWrite(pins->sce, HIGH); */
-	/* digitalWrite(pins->sclk, LOW); */
-	/* digitalWrite(pins->dc, HIGH); */
-	/* digitalWrite(pins->sce, LOW); */
-	/* shiftOut(pins->sdin, pins->sclk, MSBFIRST, data); */
-	/* digitalWrite(pins->sce, HIGH); */
-	
 	SET_BIT(*port.sce, bitmask.sce);
 	CLR_BIT(*port.sclk, bitmask.sclk);
 	SET_BIT(*port.dc, bitmask.dc);
