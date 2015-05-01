@@ -12,7 +12,7 @@ void etch_stop(void) {
 	free(lcdbuf);
 }
 
-static void etch_update(void) {
+void etch_update(void) {
 	lcd_setpos(0, 0);
 	int16_t x, y;
 	for (y = 0; y < LCD_MAX_Y; y++) {
@@ -25,4 +25,16 @@ static void etch_update(void) {
 void etch_pixel(int16_t x, int16_t y) {
 	lcdbuf[((y / 8) * LCD_MAX_X) + x] |= (1 << (y % 8));
 	etch_update();
+}
+
+void get_pixel(int16_t x, int16_t y) {
+	return (lcdbuf[((y / 8) * LCD_MAX_X) + x] & (1 << (y % 8)));
+}
+
+void set_pixel(int16_t x, int16_t y) {
+	lcdbuf[((y / 8) * LCD_MAX_X) + x] |= (1 << (y % 8));
+}
+
+void clear_pixel(int16_t x, int16_t y) {
+	lcdbuf[((y / 8) * LCD_MAX_X) + x] &= ~(1 << (y % 8));
 }
