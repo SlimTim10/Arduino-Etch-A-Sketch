@@ -27,7 +27,7 @@ void etch_pixel(int16_t x, int16_t y) {
 	etch_update();
 }
 
-void get_pixel(int16_t x, int16_t y) {
+uint8_t get_pixel(int16_t x, int16_t y) {
 	return (lcdbuf[((y / 8) * LCD_MAX_X) + x] & (1 << (y % 8)));
 }
 

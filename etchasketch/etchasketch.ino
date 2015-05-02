@@ -49,7 +49,7 @@ void loop(void) {
 
 	uint16_t x = map(readpot2(), 1023, 0, 0, LCD_MAX_X);
 	uint16_t y = map(readpot1(), 0, 1023, 0, (LCD_MAX_Y * 8));
-	
+
 	if (get_pixel(x, y) == 0) {
 		set_pixel(x, y);
 	} else {
