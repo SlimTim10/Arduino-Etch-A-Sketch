@@ -20,11 +20,20 @@ extern "C" {
 		uint8_t sclk;
 	};
 
+	void lcd_send_cmd(uint8_t);
 	void lcd_send_data(uint8_t);
 	void lcd_contrast(uint8_t);
 	void lcd_setpos(uint8_t, uint8_t);
 	void lcd_clear(void);
+	void lcd_print(const char *);
+	void lcd_printat(const char *, uint8_t, uint8_t);
 	void lcd_init(struct lcd_pins *);
+
+#define lcd_printf(...)	({\
+			char tmpstr[LCD_MAX_CHARS];\
+			sprintf(tmpstr, __VA_ARGS__);\
+			lcd_print(tmpstr);\
+		})
 
 #ifdef __cplusplus
 }
